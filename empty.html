@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="src/styles.css" /> 
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <h1>temperatures</h1>
+    
+</body>
+<script>
+//eliminated this in week 5 homework
+
+let apiKey = "2ffdfb8d8d8b00d2858bb969032d4f11";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=40.6552576&lon=-73.9016704&appid=${apiKey}&units=metric`;
+  
+function showWeather(response, search) {
+  let h1 = document.querySelector("h1");
+  let temperature = Math.round(response.data.main.temp);
+  h1.innerHTML = `⛅${temperature}°C`;
+  
+}
+axios.get(apiUrl).then(showWeather);
+
+</script>
+</html>
